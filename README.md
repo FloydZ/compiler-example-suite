@@ -1,0 +1,2 @@
+Example project showing of ow to compile an run special compiler abilties like openmp offloading with clang.
+Currently heavily under work. So most of the work ist still under development and NOT stable.

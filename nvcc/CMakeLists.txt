@@ -1,0 +1,1 @@
+add_executable(cuta_test cudatest.cu)

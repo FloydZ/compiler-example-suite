@@ -1,0 +1,52 @@
+---
+title: saxpy
+author: Xin Wu (PC²)
+date: 05.04.2020
+---
+
+# Introduction
+
+`saxpy` performs the `saxpy` operation on host as well as accelerator.
+The performance (in MB/s) for different implementations is also compared.
+
+The `saxpy` operation is defined as:
+
+$$ y := a * x + y $$
+
+where:
+
+* `a` is a scalar.
+* `x` and `y` are single-precision vectors each with n elements.
+* For testing n is assumed to be $2^{26}$.
+* The following table only summarizes the most important points. For more
+  details on the ial-th implementation see comments in `hsaxpy.c` (on host)
+  and `asaxpy.c` (on accelerator).
+
+    - on host
+
+| ial |  Remarks                                                               |
+|:---:|------------------------------------------------------------------------|
+|  0  | naive implementation                                                   |
+|  1  | saxpy in MKL                                                           |
+
+    - on accl
+
+| ial |  Remarks                                                               |
+|:---:|------------------------------------------------------------------------|
+|  0  | <<<2^0 , 2^0 >>>, TOO SLOW! not tested                                 |
+|  1  | <<<2^0 , 2^7 >>>, auto   scheduling                                    |
+|  2  | <<<2^7 , 2^0 >>>, auto   scheduling                                    |
+|  3  | <<<2^7 , 2^7 >>>, auto   scheduling                                    |
+|  4  | <<<2^16, 2^10>>>, manual scheduling                                    |
+|  5  | <<<2^15, 2^7 >>>, manual scheduling, 16x loop unrolling                |
+|     | (2^15*2^7*16==2^26)                                                    |
+|  6  | <<<2^12, 2^7 >>>, auto   scheduling, 16x loop unrolling                |
+|  7  | de-linearize the vector gives slightly better performance than CUBLAS  |
+|  8  | cublasSaxpy in CUBLAS                                                  |
+
+# Usage
+
+```bash
+saxpy
+```
+

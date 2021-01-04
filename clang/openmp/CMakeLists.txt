@@ -1,0 +1,2 @@
+add_executable(clang_openmp_test_mptest mptest.c)
+add_executable(clang_openmp_test_mptestload mptestload.c)
