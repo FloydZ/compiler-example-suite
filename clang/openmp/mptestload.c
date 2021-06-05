@@ -1,5 +1,5 @@
 /******************************************************************************
-* FILE: omp_workshare2.c
+* FILE: mptestload.c
 * DESCRIPTION:
 *   OpenMP Example - Sections Work-sharing - C Version
 *   In this example, the OpenMP SECTION directive is used to assign
