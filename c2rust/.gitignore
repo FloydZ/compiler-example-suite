@@ -1,6 +1,6 @@
 build/
 .cache/
-.local-history.
+.local-history/
 cmake-build-debug/
 cmake-build-release/
 CMakeCache.txt
