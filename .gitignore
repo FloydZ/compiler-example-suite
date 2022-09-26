@@ -3,6 +3,8 @@
 *.ll
 .git/
 .idea/
+.cache/
+.local-history/
 build/
 cmake-build-debug/
 cmake-build-release/

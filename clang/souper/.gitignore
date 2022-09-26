@@ -1,3 +1,4 @@
+.cache/
 .local-history/
 mptestload
 sclang_mptestload
