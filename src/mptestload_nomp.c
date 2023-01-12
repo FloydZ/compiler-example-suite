@@ -6,18 +6,17 @@
 
 int main(int argc, char *argv[]) {
   uint64_t i, j, nthreads, tid;
-  double a[N], b[N], c[N], d[N];
+  uint64_t a[N], b[N], c[N], d[N];
   // const clock_t start = clock();
 
   /* Some initializations */
   for (i = 0; i < N; i++) {
     a[i] = i * 2;
-    b[i] = i + 3;
+    b[i] = i + 3 - a[i];
     c[i] = d[i] = 1;
   }
 
   {
-
     {
       {
         for (j = 0; j < N; j++) {
@@ -47,5 +46,5 @@ int main(int argc, char *argv[]) {
   }
 
   // printf("%f\n", (double)(clock()-start));
-  return sum;
+  return !(sum > 0);
 }

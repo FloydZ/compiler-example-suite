@@ -1,0 +1,582 @@
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: '../../src/mptestload.c', Line: 22, Column: 11 }
+Function:        main
+Hotness:         1
+Args:
+  - Callee:          omp_get_thread_num
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 8, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: '../../src/mptestload.c', Line: 24, Column: 18 }
+Function:        main
+Hotness:         1
+Args:
+  - Callee:          omp_get_num_threads
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 8, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: '../../src/mptestload.c', Line: 22, Column: 11 }
+Function:        main
+Hotness:         1
+Args:
+  - Callee:          omp_get_thread_num
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 8, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Missed
+Pass:            inline
+Name:            NoDefinition
+DebugLoc:        { File: '../../src/mptestload.c', Line: 24, Column: 18 }
+Function:        main
+Hotness:         1
+Args:
+  - Callee:          omp_get_num_threads
+  - String:          ' will not be inlined into '
+  - Caller:          main
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 8, Column: 0 }
+  - String:          ' because its definition is unavailable'
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: '../../src/mptestload.c', Line: 33, Column: 31 }
+Function:        main
+Hotness:         1249993280
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 33, Column: 31 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: '../../src/mptestload.c', Line: 33, Column: 31 }
+Function:        main
+Hotness:         1249993280
+Args:
+  - String:          'hoisting '
+  - Inst:            load
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 33, Column: 31 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: '../../src/mptestload.c', Line: 37, Column: 26 }
+Function:        main
+Hotness:         1249993280
+Args:
+  - String:          'hoisting '
+  - Inst:            getelementptr
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 37, Column: 26 }
+...
+--- !Passed
+Pass:            licm
+Name:            Hoisted
+DebugLoc:        { File: '../../src/mptestload.c', Line: 37, Column: 26 }
+Function:        main
+Hotness:         1249993280
+Args:
+  - String:          'hoisting '
+  - Inst:            load
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 37, Column: 26 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: '../../src/mptestload.c', Line: 39, Column: 13 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 33, Column: 16 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: '../../src/mptestload.c', Line: 39, Column: 18 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     load
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 37, Column: 16 }
+...
+--- !Passed
+Pass:            gvn
+Name:            LoadElim
+DebugLoc:        { File: '../../src/mptestload.c', Line: 40, Column: 10 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' eliminated'
+  - String:          ' in favor of '
+  - InfavorOfValue:  load
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: '../../src/mptestload.c', Line: 39, Column: 13 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 33, Column: 16 }
+...
+--- !Missed
+Pass:            gvn
+Name:            LoadClobbered
+DebugLoc:        { File: '../../src/mptestload.c', Line: 39, Column: 18 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'load of type '
+  - Type:            double
+  - String:          ' not eliminated'
+  - String:          ' in favor of '
+  - OtherAccess:     load
+  - String:          ' because it is clobbered by '
+  - ClobberedBy:     store
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 37, Column: 16 }
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: '../../src/mptestload.c', Line: 14, Column: 3 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: '../../src/mptestload.c', Line: 14, Column: 3 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '4'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: '../../src/mptestload.c', Line: 36, Column: 3 }
+Function:        main
+Hotness:         1250068280
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '4'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '4'
+  - String:          ')'
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: '../../src/mptestload.c', Line: 32, Column: 9 }
+Function:        main
+Hotness:         1250068280
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '4'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '4'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            InterleavingNotBeneficial
+DebugLoc:        { File: '../../src/mptestload.c', Line: 46, Column: 9 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          the cost-model indicates that interleaving is not beneficial
+...
+--- !Passed
+Pass:            loop-vectorize
+Name:            Vectorized
+DebugLoc:        { File: '../../src/mptestload.c', Line: 46, Column: 9 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'vectorized loop (vectorization width: '
+  - VectorizationFactor: '4'
+  - String:          ', interleaved count: '
+  - InterleaveCount: '1'
+  - String:          ')'
+...
+--- !Analysis
+Pass:            loop-vectorize
+Name:            NonReductionValueUsedOutsideLoop
+DebugLoc:        { File: '../../src/mptestload.c', Line: 55, Column: 3 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'loop not vectorized: '
+  - String:          value that could not be identified as reduction is used outside the loop
+...
+--- !Missed
+Pass:            loop-vectorize
+Name:            MissedDetails
+DebugLoc:        { File: '../../src/mptestload.c', Line: 55, Column: 3 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          loop not vectorized
+...
+--- !Missed
+Pass:            slp-vectorizer
+Name:            NotPossible
+DebugLoc:        { File: '../../src/mptestload.c', Line: 56, Column: 9 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'Cannot SLP vectorize list: vectorization was impossible'
+  - String:          ' with available vectorization factors'
+...
+--- !Passed
+Pass:            stack-protector
+Name:            StackProtectorBuffer
+Function:        main
+Hotness:         1
+Args:
+  - String:          'Stack protection applied to function '
+  - Function:        main
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 8, Column: 0 }
+  - String:          ' due to a stack allocated buffer or struct containing a buffer'
+...
+--- !Passed
+Pass:            stack-protector
+Name:            StackProtectorBuffer
+Function:        main
+Hotness:         1
+Args:
+  - String:          'Stack protection applied to function '
+  - Function:        main
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 8, Column: 0 }
+  - String:          ' due to a stack allocated buffer or struct containing a buffer'
+...
+--- !Passed
+Pass:            stack-protector
+Name:            StackProtectorBuffer
+Function:        main
+Hotness:         1
+Args:
+  - String:          'Stack protection applied to function '
+  - Function:        main
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 8, Column: 0 }
+  - String:          ' due to a stack allocated buffer or struct containing a buffer'
+...
+--- !Passed
+Pass:            stack-protector
+Name:            StackProtectorBuffer
+Function:        main
+Hotness:         1
+Args:
+  - String:          'Stack protection applied to function '
+  - Function:        main
+    DebugLoc:        { File: '../../src/mptestload.c', Line: 8, Column: 0 }
+  - String:          ' due to a stack allocated buffer or struct containing a buffer'
+...
+--- !Analysis
+Pass:            prologepilog
+Name:            StackSize
+DebugLoc:        { File: '../../src/mptestload.c', Line: 8, Column: 0 }
+Function:        main
+Hotness:         1
+Args:
+  - NumStackBytes:   '1600008'
+  - String:          ' stack bytes in function'
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        main
+Hotness:         1
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '12'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 15, Column: 14 }
+Function:        main
+Hotness:         6250
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '22'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 22, Column: 11 }
+Function:        main
+Hotness:         1
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '4'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 24, Column: 18 }
+Function:        main
+Hotness:         1
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '1'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        main
+Hotness:         1
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '1'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 32, Column: 9 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 33, Column: 26 }
+Function:        main
+Hotness:         78129836
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '19'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 36, Column: 3 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 37, Column: 31 }
+Function:        main
+Hotness:         78129836
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '23'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 39, Column: 13 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '11'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        main
+Hotness:         1
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '1'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 47, Column: 19 }
+Function:        main
+Hotness:         6250
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '9'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        main
+Hotness:         1
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 56, Column: 9 }
+Function:        main
+Hotness:         25002
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '8'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+Function:        main
+Hotness:         1
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 60, Column: 3 }
+Function:        main
+Hotness:         1
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '3'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionMix
+DebugLoc:        { File: '../../src/mptestload.c', Line: 0, Column: 0 }
+Function:        main
+Hotness:         0
+Args:
+  - String:          'BasicBlock: '
+  - BasicBlock:      ''
+  - String:          "\n"
+  - String:          ''
+  - String:          ': '
+  - INST_:           '2'
+  - String:          "\n"
+...
+--- !Analysis
+Pass:            asm-printer
+Name:            InstructionCount
+DebugLoc:        { File: '../../src/mptestload.c', Line: 8, Column: 0 }
+Function:        main
+Hotness:         1
+Args:
+  - NumInstructions: '125'
+  - String:          ' instructions in function'
+...
