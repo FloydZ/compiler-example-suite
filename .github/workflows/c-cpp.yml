@@ -1,0 +1,37 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+    
+env:
+  BUILD_TYPE: Release
+  
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: souper
+      run: |
+       git clone https://github.com/google/souper 
+       cd souper
+       ./build_deps.sh ${{env.BUILD_TYPE}}
+       mkdir build
+       cd build
+       cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} ..
+       make
+       
+    - name: make bolt
+      working-directory: ${{github.workspace}}/clang/bolt
+      run: make
+
+    - name: make souper
+      working-directory: ${{github.workspace}}/clang/bolt
+      run: make
+
