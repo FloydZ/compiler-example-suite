@@ -1,0 +1,12 @@
+.cache/
+.local-history/
+test/.local-history/
+test/cmake_install.cmake
+test/CMakeCache.txt
+test/CMakeFiles/
+test/Makefile
+test/.cmake/
+test/example_c
+
+Session.vim
+

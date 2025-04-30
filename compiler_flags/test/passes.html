@@ -1,0 +1,80 @@
+<!doctype html><html><head><style>.collapsible { background-color: #777; color: white; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 15px;} .active, .collapsible:hover { background-color: #555;} .content { padding: 0 18px; display: none; overflow: hidden; background-color: #f1f1f1;}</style><title>passes.html</title></head>
+<body><button type="button" class="collapsible">0. Initial IR (by function)</button>
+<div class="content">
+  <p>
+  <a href="diff_0_0.pdf" target="_blank">0.0. Initial IR</a><br/>
+  </p>
+</div><br/>
+  <a>1. Pass VerifierPass on [module] omitted because no change</a><br/>
+  <a>2. Pass Annotation2MetadataPass on [module] omitted because no change</a><br/>
+  <a>3. Pass ForceFunctionAttrsPass on [module] omitted because no change</a><br/>
+  <a>4. Pass InferFunctionAttrsPass on [module] omitted because no change</a><br/>
+  <a>5. Pass CoroEarlyPass on main omitted because no change</a><br/>
+  <a>6. PassManager&lt;Function&gt; on main ignored</a><br/>
+  <a>7. ModuleToFunctionPassAdaptor on [module] ignored</a><br/>
+  <a>8. Pass OpenMPOptPass on [module] omitted because no change</a><br/>
+  <a>9. Pass IPSCCPPass on [module] omitted because no change</a><br/>
+  <a>10. Pass CalledValuePropagationPass on [module] omitted because no change</a><br/>
+  <a>11. Pass GlobalOptPass on [module] omitted because no change</a><br/>
+  <a>12. ModuleToFunctionPassAdaptor on [module] ignored</a><br/>
+  <a>13. Pass DeadArgumentEliminationPass on [module] omitted because no change</a><br/>
+  <a>14. PassManager&lt;Function&gt; on main ignored</a><br/>
+  <a>15. ModuleToFunctionPassAdaptor on [module] ignored</a><br/>
+  <a>16. Pass RequireAnalysisPass&lt;GlobalsAA, Module&gt; on [module] omitted because no change</a><br/>
+  <a>17. ModuleToFunctionPassAdaptor on [module] ignored</a><br/>
+  <a>18. Pass RequireAnalysisPass&lt;ProfileSummaryAnalysis, Module&gt; on [module] omitted because no change</a><br/>
+  <a>19. Pass InlinerPass on (main) omitted because no change</a><br/>
+  <a>20. Pass InlinerPass on (main) omitted because no change</a><br/>
+  <a>21. Pass PostOrderFunctionAttrsPass on (main) omitted because no change</a><br/>
+  <a>22. Pass ArgumentPromotionPass on (main) omitted because no change</a><br/>
+  <a>23. Pass OpenMPOptCGSCCPass on (main) omitted because no change</a><br/>
+  <a>24. Pass RequireAnalysisPass&lt;OptimizationRemarkEmitterAnalysis, Function&gt; on main omitted because no change</a><br/>
+  <a>25. PassManager&lt;Function&gt; on main ignored</a><br/>
+  <a>26. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 1 containing: %17<header><exiting>,%20,%37<latch> ignored</a><br/>
+  <a>27. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 2 containing: %45<header><exiting>,%48,%79<latch> ignored</a><br/>
+  <a>28. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 1 containing: %41<header><exiting>,%44,%45,%82,%83<latch>,%48,%79 ignored</a><br/>
+  <a>29. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 1 containing: %87<header><exiting>,%90,%108<latch> ignored</a><br/>
+  <a>30. FunctionToLoopPassAdaptor on main ignored</a><br/>
+  <a>31. PassManager&lt;Function&gt; on main ignored</a><br/>
+  <a>32. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 1 containing: %17<header><exiting>,%20,%37<latch> ignored</a><br/>
+  <a>33. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 2 containing: %45<header><exiting>,%48,%79<latch> ignored</a><br/>
+  <a>34. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 1 containing: %41<header><exiting>,%44,%45,%82,%83<latch>,%48,%79 ignored</a><br/>
+  <a>35. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 1 containing: %87<header><exiting>,%90,%108<latch> ignored</a><br/>
+  <a>36. FunctionToLoopPassAdaptor on main ignored</a><br/>
+  <a>37. PassManager&lt;Function&gt; on main ignored</a><br/>
+  <a>38. FunctionToLoopPassAdaptor on main ignored</a><br/>
+  <a>39. Pass CoroElidePass on main omitted because no change</a><br/>
+  <a>40. PassManager&lt;Function&gt; on main ignored</a><br/>
+  <a>41. CGSCCToFunctionPassAdaptor on (main) ignored</a><br/>
+  <a>42. Pass CoroSplitPass on (main) omitted because no change</a><br/>
+  <a>43. PassManager&lt;LazyCallGraph::SCC, AnalysisManager&lt;LazyCallGraph::SCC, LazyCallGraph&&gt;, LazyCallGraph&, CGSCCUpdateResult&&gt; on (main) ignored</a><br/>
+  <a>44. DevirtSCCRepeatedPass on (main) ignored</a><br/>
+  <a>45. ModuleToPostOrderCGSCCPassAdaptor on [module] ignored</a><br/>
+  <a>46. ModuleInlinerWrapperPass on [module] ignored</a><br/>
+  <a>47. Pass GlobalOptPass on [module] omitted because no change</a><br/>
+  <a>48. Pass GlobalDCEPass on [module] omitted because no change</a><br/>
+  <a>49. Pass EliminateAvailableExternallyPass on [module] omitted because no change</a><br/>
+  <a>50. Pass ReversePostOrderFunctionAttrsPass on [module] omitted because no change</a><br/>
+  <a>51. Pass RequireAnalysisPass&lt;GlobalsAA, Module&gt; on [module] omitted because no change</a><br/>
+  <a>52. PassManager&lt;Function&gt; on main ignored</a><br/>
+  <a>53. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 1 containing: %17<header><exiting>,%20,%37<latch> ignored</a><br/>
+  <a>54. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 2 containing: %45<header><exiting>,%48,%79<latch> ignored</a><br/>
+  <a>55. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 1 containing: %41<header><exiting>,%44,%45,%82,%83<latch>,%48,%79 ignored</a><br/>
+  <a>56. PassManager&lt;Loop, AnalysisManager&lt;Loop, LoopStandardAnalysisResults&&gt;, LoopStandardAnalysisResults&, LPMUpdater&&gt; on Loop at depth 1 containing: %87<header><exiting>,%90,%108<latch> ignored</a><br/>
+  <a>57. FunctionToLoopPassAdaptor on main ignored</a><br/>
+  <a>58. Pass RequireAnalysisPass&lt;OptimizationRemarkEmitterAnalysis, Function&gt; on main omitted because no change</a><br/>
+  <a>59. PassManager&lt;Function&gt; on main ignored</a><br/>
+  <a>60. FunctionToLoopPassAdaptor on main ignored</a><br/>
+  <a>61. Pass CoroCleanupPass on main omitted because no change</a><br/>
+  <a>62. PassManager&lt;Function&gt; on main ignored</a><br/>
+  <a>63. ModuleToFunctionPassAdaptor on [module] ignored</a><br/>
+  <a>64. Pass CGProfilePass on [module] omitted because no change</a><br/>
+  <a>65. Pass GlobalDCEPass on [module] omitted because no change</a><br/>
+  <a>66. Pass ConstantMergePass on [module] omitted because no change</a><br/>
+  <a>67. Pass RelLookupTableConverterPass on [module] omitted because no change</a><br/>
+  <a>68. Pass AnnotationRemarksPass on main omitted because no change</a><br/>
+  <a>69. PassManager&lt;Function&gt; on main ignored</a><br/>
+  <a>70. ModuleToFunctionPassAdaptor on [module] ignored</a><br/>
+  <a>71. Pass VerifierPass on [module] omitted because no change</a><br/>
+  <a>72. Pass PrintModulePass on [module] omitted because no change</a><br/>
+<script>var coll = document.getElementsByClassName("collapsible");var i;for (i = 0; i < coll.length; i++) {coll[i].addEventListener("click", function() { this.classList.toggle("active"); var content = this.nextElementSibling; if (content.style.display === "block"){ content.style.display = "none"; } else { content.style.display= "block"; } }); }</script></body></html>
